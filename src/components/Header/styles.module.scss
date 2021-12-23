@@ -1,0 +1,55 @@
+.headerContainer {
+    height: 5rem;
+    border-bottom: 1px solid var(--gray-600);
+}
+
+.headerContent {
+    max-width: 1120px; // ocupar toda a largura da div
+    height: 5rem; // ocupar toda a altura da div 
+    margin: 0 auto; // deixar centralizado horizontalmente 
+    padding: 0 2rem; // caso o usuário reduza a tela a baixo de 1120px, fique um espaçamento entre os elementos
+
+    display: flex;
+    align-items: center; // tudo que estiver dentro da div, ficar alinhado o centro verticalmente
+
+    nav {
+        margin-left: 5rem;
+        height: 5rem;
+
+        a {
+            display: inline-block;
+            position: relative;
+            padding: 0 0.5rem;
+            height: 5rem;
+            line-height: 5rem;
+            color: var(--gray-300);
+
+            transition: color 0.2s;
+            // & + a -> toda ancora que vier depois da primeira ancora...
+            & + a {
+                margin-left: 2rem;
+            }
+
+            &:hover {
+                color: var(--white);
+            }
+
+            &.active {
+                color: var(--white);
+                font-weight: bold;
+            }
+
+            /*after: Ele adiciona a propriedade antes de fechar uma tag*/
+            &.active::after {
+                content: '';
+                height: 3px;
+                border-radius: 3px 3px 0 0;
+                width: 100%;
+                position: absolute;
+                bottom: 1px;
+                left: 0;
+                background: var(--yellow-500);
+            }
+        }
+    }
+}
