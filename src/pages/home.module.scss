@@ -2,7 +2,7 @@
     max-width: 1120px;
     margin: 0 auto;
     padding: 0 2rem;
-    height: calc(100vh - 3rem); // Altura total da tela (100vh) - Altura do cabeçalho(5rem)
+    height: calc(100vh - 3rem);
 
     display: flex;
     align-items: center;
@@ -12,7 +12,7 @@
 .hero {
     max-width: 600px;
 
-    > span { // "> span": Modificar apenas o span do primeiro nível
+    > span {
         font-size: 1.5rem;
         font-weight: bold;
     }
