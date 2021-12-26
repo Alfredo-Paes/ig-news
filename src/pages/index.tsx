@@ -37,13 +37,8 @@ export default function Home({ product }: HomeProps) {
     </>
   )
 }
-// Método responsável em consumir uma api via ssr(Server Side Rendering)
 export const getStaticProps: GetStaticProps = async () => {
   const price = await stripe.prices.retrieve('price_1KAkhgFQ9Ts1undDuC0hATr8')
-
-//  const price = await stripe.prices.retrieve('price_1KAkhgFQ9Ts1undDuC0hATr8', {
-//    expand: ['product']
-//  })
 
   const product = {
     priceId: price.id,
@@ -57,13 +52,6 @@ export const getStaticProps: GetStaticProps = async () => {
     props: {
       product
     },
-    revalidate: 60 * 60 * 24 // 24 horas
+    revalidate: 60 * 60 * 24
   }
 }
-/**
- * revalidate: Quanto tempos em segundos, deseja que a página passe sem ser revalidada. 
- * 60 * 60 * 24
- * Primeiro "60": 1 minuto
- * Segundo "60": 1 hora
- * "24": 1 dia
- */
