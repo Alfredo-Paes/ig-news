@@ -6,7 +6,7 @@ import '../styles/global.scss';
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <NextAuthProvider session={pageProps.session}> {/*ContextApi do Next.JS para  controlar sessão do usuário*/}
+    <NextAuthProvider session={pageProps.session}>
       <Header />  
       <Component {...pageProps} />
     </NextAuthProvider>
