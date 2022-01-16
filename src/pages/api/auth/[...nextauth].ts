@@ -22,20 +22,20 @@ export default NextAuth({
             const { email } = user
             try {
                 await fauna.query(
-                    q.If(// SE
-                        q.Not(//NÃO
-                            q.Exists(//EXISTE
-                                q.Match(// Exato, seja oque procura....
-                                    q.Index('user_by_email'), //Index para fazer a busca
-                                    q.Casefold(user.email) //Casefold = tratar lower-case
+                    q.If(
+                        q.Not(
+                            q.Exists(
+                                q.Match(
+                                    q.Index('user_by_email'),
+                                    q.Casefold(user.email)
                                 )
                             )
                         ),
-                        q.Create( //Cria um novo usuário
+                        q.Create(
                             q.Collection('users'),
                             { data: { email } }
                         ),
-                        q.Get(//Busque o usuário correspondente
+                        q.Get(
                             q.Match(
                                 q.Index('user_by_email'),
                                 q.Casefold(user.email)
