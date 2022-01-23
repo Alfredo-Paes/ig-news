@@ -8,7 +8,7 @@ interface SubscribeButtonProps {
 }
 
 export function SubscribeButton({ priceId }: SubscribeButtonProps) {
-    const { data: session } = useSession();  // Para o usuário subscrever, é preciso primeiro estar logado.
+    const { data: session } = useSession();
     
     async function handleSubscribe(){
         if (!session){
