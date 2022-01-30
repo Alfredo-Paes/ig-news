@@ -8,8 +8,6 @@ export async function saveSubscription(
     customerId: string,
     createAction = false
 ) {
-    //Buscar o usuário no banco do FaunaDB com o ID {customerId}
-    //Salvar os dados da subscription do usuário no FaunaDB
     const userRef = await fauna.query(
         q.Select(
             "ref",

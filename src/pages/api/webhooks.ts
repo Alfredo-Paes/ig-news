@@ -6,7 +6,7 @@ import { saveSubscription } from "./_lib/manageSubscription";
 
 
 async function buffer(readable: Readable) {
-    const chunks = []; //pedaços do stream que serão armazenados no array
+    const chunks = [];
 
     for await (const chunck of readable) {
         chunks.push(
